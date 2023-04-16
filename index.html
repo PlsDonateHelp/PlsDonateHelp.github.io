@@ -1,40 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Pls Donate Help</title>
     <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css" />
     <script src="script.js"></script>
   </head>
   <body>
-    <p>Enter the text: <input id="textInput" type="text" value="Tax Collection!" /></p>
-    <p>
-      Select the font face:
-      <select id="fontInput">
-        <option value="Bangers">Bangers</option>
-        <option value="Arial">Arial</option>
-        <option value="Helvetica">Helvetica</option>
-        <option value="Times New Roman">Times New Roman</option>
-        <option value="Courier New">Courier New</option>
-      </select>
-    </p>
-    <p>Enter the font size: <input id="sizeInput" type="text" value="90" /></p>
-    <p>
-      Choose the font color:
-      <input id="colorInput" type="text" value="#CCFFFF" />
-      <button id="fontColorPickerButton" type="button">Pick color</button>
-    </p>
-    <p>
-      Choose the stroke color:
-      <input id="strokeColorInput" type="text" value="#2A0030" />
-      <button id="strokeColorPickerButton" type="button">Pick color</button>
-    </p>
-    <p>Enter the stroke thickness: <input id="thicknessInput" type="text" value="1" /></p>
-    <p>
-      <button id="copyButton" type="button">Copy Code</button>
-      <button id="previewButton" type="button">Preview</button>
-      <button id="exportButton" type="button">Export Image</button>
-    </p>
-    <div id="previewArea"></div>
+    <div>
+      <p>Enter the text: <input id="textInput" type="text" value="Tax Collection!" /></p>
+      <p>
+        Select the font face:
+        <select id="fontInput">
+          <option value="Bangers">Bangers</option>
+          <option value="Arial">Arial</option>
+          <option value="Helvetica">Helvetica</option>
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Courier New">Courier New</option>
+        </select>
+      </p>
+      <p>Enter the font size: <input id="sizeInput" type="number" value="90" /></p>
+      <p>
+        Choose the font color:
+        <input id="colorInput" type="text" value="#CCFFFF" />
+        <button id="fontColorPickerButton" type="button">Pick color</button>
+      </p>
+      <p>
+        Choose the stroke color:
+        <input id="strokeColorInput" type="text" value="#2A0030" />
+        <button id="strokeColorPickerButton" type="button">Pick color</button>
+      </p>
+      <p>Enter the stroke thickness: <input id="thicknessInput" type="number" value="1" /></p>
+      <p>
+        <button id="copyButton" type="button">Copy Code</button>
+        <button id="exportButton" type="button">Export Image</button>
+      </p>
+    </div>
+    <div>
+      <p>Preview:</p>
+      <div id="preview"></div>
+    </div>
   </body>
 </html>
