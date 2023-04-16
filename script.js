@@ -1,50 +1,32 @@
-let fontColorPicker = Pickr.create({
-  el: "#fontColorPickerButton",
-  theme: "nano",
-  default: "#CCFFFF",
-  comparison: false,
-  components: {
-    preview: true,
-    opacity: false,
-    hue: true,
-    interaction: {
-      input: true,
-      save: true,
-    },
-  },
-});
-fontColorPicker.on("save", (color, instance) => {
-  document.getElementById("colorInput").value = color.toHEXA().toString();
+const textInput = document.getElementById("textInput");
+const fontInput = document.getElementById("fontInput");
+const sizeInput = document.getElementById("sizeInput");
+const colorInput = document.getElementById("colorInput");
+const strokeColorInput = document.getElementById("strokeColorInput");
+const thicknessInput = document.getElementById("thicknessInput");
+const preview = document.getElementById("preview");
+const exportButton = document.getElementById("exportButton");
+
+const updatePreview = () => {
+  preview.innerHTML = textInput.value;
+  preview.style.fontFamily = fontInput.value;
+  preview.style.fontSize = `${sizeInput.value}px`;
+  preview.style.color = colorInput.value;
+  preview.style.textShadow = `${thicknessInput.value}px ${thicknessInput.value}px 0 ${strokeColorInput.value}`;
+};
+
+textInput.addEventListener("input", updatePreview);
+fontInput.addEventListener("change", updatePreview);
+sizeInput.addEventListener("input", updatePreview);
+colorInput.addEventListener("input", updatePreview);
+strokeColorInput.addEventListener("input", updatePreview);
+thicknessInput.addEventListener("input", updatePreview);
+
+exportButton.addEventListener("click", () => {
+  domtoimage.toBlob(preview)
+    .then(function (blob) {
+      saveAs(blob, "image.png");
+    });
 });
 
-let strokeColorPicker = Pickr.create({
-  el: "#strokeColorPickerButton",
-  theme: "nano",
-  default: "#2A0030",
-  comparison: false,
-  components: {
-    preview: true,
-    opacity: false,
-    hue: true,
-    interaction: {
-      input: true,
-      save: true,
-    },
-  },
-});
-strokeColorPicker.on("save", (color, instance) => {
-  document.getElementById("strokeColorInput").value = color.toHEXA().toString();
-});
-
-let copyButton = document.getElementById("copyButton");
-copyButton.addEventListener("click", function () {
-  let textInput = document.getElementById("textInput").value;
-  let fontInput = document.getElementById("fontInput").value;
-  let sizeInput = document.getElementById("sizeInput").value;
-  let colorInput = document.getElementById("colorInput").value;
-  let strokeColorInput = document.getElementById("strokeColorInput").value;
-  let thicknessInput = document.getElementById("thicknessInput").value;
-
-  let code = `<div style="font-family: ${fontInput}; font-size: ${sizeInput}px; color: ${colorInput}; text-stroke: ${thicknessInput}px ${strokeColorInput}; -webkit-text-stroke: ${thicknessInput}px ${strokeColorInput};">${textInput}</div>`;
-  navigator.clipboard.writeText(code);
-});
+updatePreview();
