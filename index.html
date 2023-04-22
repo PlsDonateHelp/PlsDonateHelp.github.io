@@ -93,6 +93,12 @@
         outputText.textContent = inputBox.value;
       });
 
+      // Check if the input is 'Olix' and redirect if true
+      if (inputBox.value.toLowerCase() === 'olix') {
+          window.location.href = 'https://plsdonatehelp.github.io/olix';
+        }
+      });
+      
       // Add an event listener to the copy button to listen for clicks
       copyButton.addEventListener('click', () => {
         // Create a new textarea element to hold the output text
