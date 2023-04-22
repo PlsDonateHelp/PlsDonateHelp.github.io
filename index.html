@@ -1,1 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Copy Text to Clipboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <label for="text-input">Type here:</label>
+  <br>
+  <input type="text" id="text-input" name="text-input">
+  <br>
+  <button id="copy-btn">Copy</button>
 
+  <script>
+    const textInput = document.querySelector('#text-input');
+    const copyBtn = document.querySelector('#copy-btn');
+
+    copyBtn.addEventListener('click', () => {
+      textInput.select();
+      document.execCommand('copy');
+      alert('Text copied to clipboard!');
+    });
+  </script>
+</body>
+</html>
