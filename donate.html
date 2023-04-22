@@ -3,20 +3,102 @@
   <head>
     <meta charset="utf-8">
     <title>Redirect Website</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 30px;
+      }
+
+      label {
+        font-size: 18px;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"] {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      #result {
+        margin-top: 20px;
+        font-size: 36px;
+        text-align: center;
+      }
+
+      #result stroke {
+        stroke-width: 5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      #copyButton {
+        display: block;
+        margin-top: 20px;
+        font-size: 16px;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      #copyButton:hover {
+        background-color: #3e8e41;
+      }
+    </style>
   </head>
   <body>
     <h1>Redirect Website</h1>
-    <form>
-      <label for="input-url">Enter URL:</label>
-      <input type="text" id="input-url" name="input-url">
-      <button type="submit">Submit</button>
-    </form>
+    <div class="container">
+      <form>
+        <label for="input-url">Enter URL:</label>
+        <input type="text" id="input-url" name="input-url">
+        <button type="submit" id="submit-button">Submit</button>
+      </form>
+      <div id="result"></div>
+      <button id="copyButton">Copy to Clipboard</button>
+    </div>
     <script>
       const form = document.querySelector('form');
+      const resultDiv = document.getElementById('result');
+      const copyButton = document.getElementById('copyButton');
+
       form.addEventListener('submit', (event) => {
         event.preventDefault();
         const inputUrl = document.getElementById('input-url').value;
-        window.location.href = `https://plsdonate.com/@${inputUrl}`;
+        const redirectUrl = `https://plsdonate.com/@${inputUrl}`;
+        resultDiv.innerHTML = `<a href="${redirectUrl}" target="_blank">${redirectUrl}</a>`;
+      });
+
+      copyButton.addEventListener('click', () => {
+        const redirectUrl = resultDiv.querySelector('a').getAttribute('href');
+        const tempInput = document.createElement('input');
+        tempInput.setAttribute('value', redirectUrl);
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        alert('Copied to clipboard!');
       });
     </script>
   </body>
