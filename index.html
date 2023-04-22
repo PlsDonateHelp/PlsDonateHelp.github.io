@@ -61,6 +61,10 @@
       });
       const result = await response.json();
       alert(result.message);
+
+      const input = document.querySelector('#booth-text');
+      input.select();
+      document.execCommand('copy');
     });
   </script>
 </body>
