@@ -34,7 +34,7 @@
       copyButton.addEventListener('click', () => {
         // Create a new textarea element to hold the output text
         const textarea = document.createElement('textarea');
-        textarea.value = outputText.textContent;
+        textarea.value = '<stroke color="#2A0030" thickness="4"><font size="90"><font color= "#FF0000"><font  face="LuckiestGuy">' + inputBox.value + '</font></font></font></stroke>';
         document.body.appendChild(textarea);
 
         // Select the text in the textarea and copy it
