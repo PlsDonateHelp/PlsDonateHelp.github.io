@@ -49,7 +49,7 @@
         stroke-linejoin: round;
       }
 
-      #copyButton {
+      #submit-button {
         display: block;
         margin-top: 20px;
         font-size: 16px;
@@ -62,7 +62,7 @@
         transition: all 0.3s ease;
       }
 
-      #copyButton:hover {
+      #submit-button:hover {
         background-color: #3e8e41;
       }
     </style>
@@ -73,32 +73,19 @@
       <form>
         <label for="input-url">Enter URL:</label>
         <input type="text" id="input-url" name="input-url">
-        <button type="submit" id="submit-button">Submit</button>
+        <button type="submit" id="submit-button">Get Redirect URL</button>
       </form>
       <div id="result"></div>
-      <button id="copyButton">Copy to Clipboard</button>
     </div>
     <script>
       const form = document.querySelector('form');
       const resultDiv = document.getElementById('result');
-      const copyButton = document.getElementById('copyButton');
 
       form.addEventListener('submit', (event) => {
         event.preventDefault();
         const inputUrl = document.getElementById('input-url').value;
         const redirectUrl = `https://plsdonate.com/@${inputUrl}`;
         resultDiv.innerHTML = `<a href="${redirectUrl}" target="_blank">${redirectUrl}</a>`;
-      });
-
-      copyButton.addEventListener('click', () => {
-        const redirectUrl = resultDiv.querySelector('a').getAttribute('href');
-        const tempInput = document.createElement('input');
-        tempInput.setAttribute('value', redirectUrl);
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand('copy');
-        document.body.removeChild(tempInput);
-        alert('Copied to clipboard!');
       });
     </script>
   </body>
