@@ -17,15 +17,32 @@
         </font>
       </stroke>
     </div>
+    <button id="copyButton">Copy</button>
     <script>
-      // Get references to the input box and output text
+      // Get references to the input box, output text, and copy button
       const inputBox = document.getElementById('inputBox');
       const outputText = document.getElementById('outputText');
+      const copyButton = document.getElementById('copyButton');
 
       // Add an event listener to the input box to listen for changes
       inputBox.addEventListener('input', () => {
         // Set the output text to the value of the input box
         outputText.textContent = inputBox.value;
+      });
+
+      // Add an event listener to the copy button to listen for clicks
+      copyButton.addEventListener('click', () => {
+        // Create a new textarea element to hold the output text
+        const textarea = document.createElement('textarea');
+        textarea.value = outputText.textContent;
+        document.body.appendChild(textarea);
+
+        // Select the text in the textarea and copy it
+        textarea.select();
+        document.execCommand('copy');
+
+        // Remove the textarea element from the DOM
+        document.body.removeChild(textarea);
       });
     </script>
   </body>
