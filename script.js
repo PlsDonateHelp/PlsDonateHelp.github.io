@@ -6,9 +6,9 @@ const inputBox = document.getElementById("inputBox");
         const text = inputBox.value.toLowerCase();
         let output = "";
 
-        if (text === "yes") {
+        if (text === "olix is a nerd") {
           output =
-            '<stroke color="#2A0030" thickness="4"><font size="90"><font color="#FF0000"><font face="LuckiestGuy">no</font></font></font></stroke>';
+            '<stroke color="#2A0030" thickness="4"><font size="90"><font color="#FF0000"><font face="LuckiestGuy">yes</font></font></font></stroke>';
         } else {
           output = `<stroke color="#2A0030" thickness="4"><font size="90"><font color="#FF0000"><font face="LuckiestGuy">${text}</font></font></font></stroke>`;
         }
