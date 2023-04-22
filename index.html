@@ -2,68 +2,7 @@
 <html>
   <head>
     <title>Replace Text Example</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-
-      h1 {
-        text-align: center;
-        margin-top: 50px;
-      }
-
-      .container {
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 30px;
-      }
-
-      label {
-        font-size: 18px;
-        font-weight: bold;
-        display: block;
-        margin-bottom: 10px;
-      }
-
-      input[type="text"] {
-        font-size: 16px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        width: 100%;
-        box-sizing: border-box;
-      }
-
-      #result {
-        margin-top: 20px;
-        font-size: 36px;
-        text-align: center;
-      }
-
-      #result stroke {
-        stroke-width: 5;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
-
-      #copyButton {
-        display: block;
-        margin-top: 20px;
-        font-size: 16px;
-        padding: 10px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      #copyButton:hover {
-        background-color: #0062cc;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
     <div class="container">
@@ -81,41 +20,6 @@
       </div>
       <button id="copyButton">Copy</button>
     </div>
-    <script>
-      // Get references to the input box, output text, and copy button
-      const inputBox = document.getElementById('inputBox');
-      const outputText = document.getElementById('outputText');
-      const copyButton = document.getElementById('copyButton');
-
-      // Add an event listener to the input box to listen for changes
-      inputBox.addEventListener('input', () => {
-        // Set the output text to the value of the input box
-        outputText.textContent = inputBox.value;
-      });
-
-      // Check if the input is 'Olix' and redirect if true
-      if (inputBox.value.toLowerCase() === 'olix') {
-          window.location.href = 'https://plsdonatehelp.github.io/olix';
-        }
-      });
-      
-      // Add an event listener to the copy button to listen for clicks
-      copyButton.addEventListener('click', () => {
-        // Create a new textarea element to hold the output text
-        const textarea = document.createElement('textarea');
-        textarea.value =
-          '<stroke color="#2A0030" thickness="4"><font size="90"><font color="#FF0000"><font face="LuckiestGuy">' +
-          inputBox.value +
-          '</font></font></font></stroke>';
-        document.body.appendChild(textarea);
-
-        // Select the text in the textarea and copy it
-        textarea.select();
-        document.execCommand('copy');
-
-        // Remove the textarea element from the DOM
-        document.body.removeChild(textarea);
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
