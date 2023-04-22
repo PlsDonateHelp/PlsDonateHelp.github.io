@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Custom Booth Text</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -36,6 +37,13 @@
     }
     button[type="submit"]:hover {
       background-color: #3e8e41;
+    }
+    
+    /* Media queries */
+    @media only screen and (max-width: 600px) {
+      form {
+        width: 100%;
+      }
     }
   </style>
 </head>
