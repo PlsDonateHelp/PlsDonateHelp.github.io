@@ -1,9 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Website</title>
+  <title>Custom Booth Text</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    form {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+    button[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button[type="submit"]:hover {
+      background-color: #3e8e41;
+    }
+  </style>
 </head>
 <body>
-	<p><stroke color="#2A0030" thickness="1" style="background-color: #FFFFFF"><font size="90"><font color= "#000000"><font face="Bangers">Type here</font></font></font></stroke></p>
+  <h1>Custom Booth Text</h1>
+  <form>
+    <label for="booth-text">Enter your custom booth text:</label>
+    <input type="text" id="booth-text" name="booth-text">
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const boothText = document.querySelector('#booth-text').value;
+      const response = await fetch('https://yourgameapi.com/booth', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ boothText })
+      });
+      const result = await response.json();
+      alert(result.message);
+    });
+  </script>
 </body>
 </html>
