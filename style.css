@@ -59,3 +59,41 @@ input[type="text"] {
 #copyButton:hover {
   background-color: #3e8e41;
 }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 18px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a.home {
+  margin-right: auto;
+}
+
+nav a.donate {
+  margin-left: auto;
+}
