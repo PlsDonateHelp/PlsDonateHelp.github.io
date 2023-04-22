@@ -59,11 +59,11 @@
   <script>
     const textInput = document.querySelector('#text-input');
     const copyBtn = document.querySelector('#copy-btn');
-    const copyText = document.querySelector('#copy-text font');
+    const copyText = document.querySelector('#copy-text font font font');
 
     copyBtn.addEventListener('click', () => {
       const inputText = textInput.value;
-      copyText.innerHTML = inputText;
+      copyText.textContent = inputText;
       textInput.select();
       document.execCommand('copy');
       alert('Text copied to clipboard!');
